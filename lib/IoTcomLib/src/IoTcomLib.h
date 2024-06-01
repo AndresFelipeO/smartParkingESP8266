@@ -21,7 +21,7 @@ void ConectarRed(char ssid[], char password[]);
  * @param writeAPIKey API KEY de ThinkSpeak para escritura
  * @return void 
  */
-void InicializarThingSpeak();
+void InicializarThingSpeak(long prmChannelID, char* prmReadAPIKey,char* prmWriteAPIKey);
 
 /**
  * @brief Permite enviar un dato perticular a ThingSpeak

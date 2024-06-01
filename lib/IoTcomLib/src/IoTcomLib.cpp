@@ -24,16 +24,20 @@ void ConectarRed(char ssid[], char password[])
 WiFiClient client;              //Cliente Wifi para ThingSpeak
 // Información del Canal y Campos de ThingSpeak
 //static char thingSpeakAddress[] = "api.thingspeak.com";
-static unsigned long channelID = 799494;
-static char* readAPIKey=(char*)"70GGTLNT0EMFP0WO";
-static char* writeAPIKey = (char*)"7ZBZ9LU15LQRYKRF";
+static unsigned long channelID;
+static char* readAPIKey;
+static char* writeAPIKey;
 unsigned int dataFieldOne = 1;                       // Calpo para escribir el estado de la Temperatura
 unsigned int dataFieldTwo = 2;                       // Campo para escribir el estado del Bombillo
 unsigned int dataFieldThree = 3;                     // Campo para escribir el estado del ventilador
 unsigned int dataFieldFour = 4;                      // Campo para enviar el tiempo de medición
 
-void InicializarThingSpeak()
+void InicializarThingSpeak( long prmChannelID, char* prmReadAPIKey,char* prmWriteAPIKey)
 {
+  channelID=prmChannelID;
+  readAPIKey=prmReadAPIKey;
+  writeAPIKey=prmWriteAPIKey;
+  
     //************ Conectar Cliente ThinkSpeak *******
     ThingSpeak.begin( client );
     //************ Fin Conectar Cliente ThingSpeak ***
